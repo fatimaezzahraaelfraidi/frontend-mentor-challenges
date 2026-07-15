@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <title>
+      Frontend Mentor | Huddle landing page with single introductory section
+    </title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: hsl(257, 40%, 49%);
+        background-image: url(./images/bg-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 400;
+      }
+      .page-container {
+        width: min(100% - 80px, 1280px);
+        margin-inline: auto;
+      }
+      header {
+        padding-top: 20px;
+      }
+
+      header img {
+        width: 150px;
+      }
+      main {
+        display: flex;
+        align-items: center;
+        gap: 56px;
+        margin-top: 80px;
+      }
+      .content {
+        flex: 1;
+        max-width: 520px;
+      }
+      .illustration {
+        display: block;
+        width: 55%;
+        max-width: 700px;
+      }
+      .content h1 {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(2rem, 3vw, 2.5rem);
+        line-height: 1.5;
+        font-weight: 600;
+      }
+
+      .content p {
+        margin: 20px 0 0;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .btn-register {
+        display: inline-block;
+        margin-top: 24px;
+        padding: 14px 64px;
+        background-color: white;
+        color: hsl(257, 40%, 49%);
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 0 8px 16px rgb(0 0 0 / 25%);
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .btn-register:hover,
+      .btn-register:focus-visible {
+        background-color: hsl(300, 69%, 71%);
+        color: white;
+      }
+      .social-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+        padding: 32px 0 40px;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border: 1px solid white;
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-links a:hover,
+      .social-links a:focus-visible {
+        color: hsl(300, 69%, 71%);
+        border-color: hsl(300, 69%, 71%);
+      }
+      @media (max-width: 500px) {
+        body {
+          background-image: url("./images/bg-mobile.svg");
+          background-size: contain;
+          background-position: top center;
+        }
+
+        .page-container {
+          width: min(100% - 48px, 600px);
+        }
+
+        header {
+          padding-top: 32px;
+        }
+
+        header img {
+          width: 140px;
+        }
+
+        main {
+          flex-direction: column;
+          gap: 56px;
+          margin-top: 64px;
+        }
+
+        .illustration {
+          width: 100%;
+        }
+
+        .content {
+          max-width: none;
+          text-align: center;
+        }
+
+        .content h1 {
+          font-size: 1.5rem;
+          line-height: 1.5;
+        }
+
+        .content p {
+          font-size: 1rem;
+        }
+
+        .btn-register {
+          width: min(100%, 280px);
+          padding-inline: 24px;
+          text-align: center;
+        }
+
+        .social-links {
+          justify-content: center;
+          padding-top: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+      <header>
+        <img src="./images/logo.svg" alt="Huddle" />
+      </header>
+      <main>
+        <img
+          class="illustration"
+          src="./images/illustration-mockups.svg"
+          alt="illustration"
+        />
+        <div class="content">
+          <h1>Build The Community Your Fans Will Love</h1>
+          <p>
+            Huddle re-imagines the way we build communities. You have a voice,
+            but so does your audience. Create connections with your users as you
+            engage in genuine discussion.
+          </p>
+          <a class="btn-register" href="#">Register</a>
+        </div>
+      </main>
+      <footer class="social-links">
+        <a href="#" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+        </a>
+
+        <a href="#" aria-label="Twitter">
+          <i class="fa-brands fa-twitter" aria-hidden="true"></i>
+        </a>
+
+        <a href="#" aria-label="Instagram">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+        </a>
+      </footer>
+    </div>
+  </body>
+</html>
