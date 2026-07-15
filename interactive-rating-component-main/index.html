@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --orange: hsl(25, 97%, 53%);
+        --white: hsl(0, 100%, 100%);
+        --grey-500: hsl(217, 12%, 63%);
+        --grey-900: hsl(213, 19%, 18%);
+        --grey-950: hsl(216, 12%, 8%);
+        --circle-background: hsl(213, 19%, 22%);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: var(--grey-950);
+        font-family: "Overpass", sans-serif;
+      }
+      main {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+      }
+      .rating-card,
+      .thanks-card {
+        width: 100%;
+        max-width: 412px;
+        padding: 32px;
+        background: linear-gradient(
+          to bottom,
+          hsl(213, 19%, 18%),
+          hsl(215, 27%, 12%)
+        );
+        border-radius: 30px;
+      }
+      .thanks-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .star-icon {
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        background-color: var(--circle-background);
+        border-radius: 50%;
+      }
+      .star-icon i {
+        color: var(--orange);
+        font-size: 16px;
+      }
+      .rating-card h1,
+      .thanks-card h1 {
+        margin: 32px 0 0;
+        color: var(--white);
+        font-size: 28px;
+        line-height: 1.25;
+        font-weight: 700;
+      }
+      .rating-card > p,
+      .thanks-card > p {
+        margin: 12px 0 0;
+        color: var(--grey-500);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .rating {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .rating-button {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background-color: var(--circle-background);
+        color: var(--grey-500);
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .rating-button:hover {
+        background-color: var(--orange);
+        color: var(--grey-950);
+      }
+
+      .rating-button.selected {
+        background-color: var(--white);
+        color: var(--grey-950);
+      }
+
+      .rating-button:focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+      }
+      .btn-submit {
+        width: 100%;
+        margin-top: 32px;
+        padding: 14px 24px;
+        border: 0;
+        border-radius: 999px;
+        background-color: var(--orange);
+        color: var(--grey-950);
+        font-family: inherit;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+      }
+      .btn-submit:hover,
+      .btn-submit:focus-visible {
+        background-color: var(--white);
+        color: var(--grey-950);
+      }
+
+      .thanks-card > .selected-rating {
+        margin-top: 32px;
+        padding: 6px 16px;
+        width: max-content;
+        background-color: var(--circle-background);
+        color: var(--orange);
+        border-radius: 999px;
+      }
+      .thanks-card[hidden],
+      .rating-card[hidden] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <article class="rating-card">
+        <span class="star-icon"><i class="fa-solid fa-star"></i></span>
+        <h1>How did we do?</h1>
+        <p>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="rating" aria-label="Choose a rating">
+          <button type="button" class="rating-button" data-rating="1">1</button>
+          <button type="button" class="rating-button" data-rating="2">2</button>
+          <button type="button" class="rating-button" data-rating="3">3</button>
+          <button type="button" class="rating-button" data-rating="4">4</button>
+          <button type="button" class="rating-button" data-rating="5">5</button>
+        </div>
+        <button class="btn-submit" type="button">Submit</button>
+      </article>
+      <article class="thanks-card" hidden>
+        <img
+          src="./images/illustration-thank-you.svg"
+          alt="Thanks illustration"
+        />
+        <p class="selected-rating"></p>
+        <h1>Thank you!</h1>
+        <p>
+          We appreciate you taking the time to give a rating. If you need more
+          support, don't hesitate to get in touch!
+        </p>
+      </article>
+    </main>
+    <script>
+      const ratingButtons = document.querySelectorAll(".rating-button");
+      const submitButton = document.querySelector(".btn-submit");
+      const ratingCard = document.querySelector(".rating-card");
+      const thankYouCard = document.querySelector(".thanks-card");
+      const selectedRatingElement = document.querySelector(".selected-rating");
+      let selectedRating = null;
+
+      ratingButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          ratingButtons.forEach((item) => {
+            item.classList.remove("selected");
+          });
+
+          button.classList.add("selected");
+          selectedRating = button.dataset.rating;
+        });
+      });
+
+      submitButton.addEventListener("click", () => {
+        if (selectedRating === null) {
+          alert("Please select a rating before submitting.");
+          return;
+        }
+
+        selectedRatingElement.textContent = `You selected ${selectedRating} out of 5`;
+        ratingCard.hidden = true;
+        thankYouCard.hidden = false;
+      });
+    </script>
+  </body>
+</html>
